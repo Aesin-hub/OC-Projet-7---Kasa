@@ -1,0 +1,45 @@
+/* src/styles/components/_header.scss */
+@use "../variables" as v;
+
+.header {
+  margin-top: 45px;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand { display: inline-flex; align-items: center; }
+
+  &__logo { width: 210px; height: 68px; display: block; }
+
+  &__nav { display: flex; gap: 57px; }
+
+  &__link {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    text-decoration: none;;
+    color: v.$color-text;
+
+    &.is-active::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -5px;
+      height: 2px;
+      background: v.$color-primary;   /* <<< important */
+    }
+  }
+}
+
+@media (max-width: v.$bp-md) {
+  .header {
+    padding-block: 20px;
+
+    &__logo { width: 145px; height: auto; }
+    &__nav { gap: 26px; }
+    &__link { font-size: 12px; text-transform: uppercase; }
+  }
+}
