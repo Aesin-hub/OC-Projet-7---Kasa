@@ -1,0 +1,58 @@
+/* src/styles/pages/_error.scss */
+
+.error {
+  /* largeur du contenu (maquette desktop) + centrage */
+  max-width: 1240px;
+  margin: 139px auto;          /* 139px au-dessus (sous le header) et 139px au-dessous (au-dessus du footer) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 139px;                  /* 404 ↔ Oups ↔ Retour : 139px entre chaque bloc */
+}
+
+.error__img {
+  width: 597px;
+  height: 263px;
+  object-fit: contain;         /* Sécurité si image PNG un peu différente */
+  display: block;
+}
+
+.error__text {
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 500;            /* Medium */
+  font-size: 36px;
+  line-height: 1.3;
+  color: #ff6060;              /* FF6060 */
+  text-align: center;
+}
+
+.error__back {
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 500;            /* Medium */
+  font-size: 18px;
+  text-decoration: underline;  /* lien souligné */
+  color: inherit;              /* garde la couleur de texte courante (noir) */
+  text-underline-offset: 2px;  /* plus joli visuellement */
+}
+
+/* Optionnel : petite adaptation tablette/mobile */
+@media (max-width: 768px) {
+  .error {
+    margin: 96px auto;    /* un peu moins d’espace sur petits écrans */
+    gap: 64px;
+    padding-inline: 20px; /* confort latéral */
+  }
+
+  .error__img {
+    width: min(597px, 80vw);
+    height: auto;
+  }
+
+  .error__text {
+    font-size: 28px;
+  }
+
+  .error__back {
+    font-size: 16px;
+  }
+}

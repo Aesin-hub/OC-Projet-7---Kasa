@@ -1,7 +1,7 @@
 // src/components/Layout.jsx
-import { Outlet } from "react-router-dom";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
+import { Outlet } from 'react-router-dom'
+import Header from './Header.jsx'
+import Footer from './Footer.jsx'
 
 export default function Layout() {
   return (
@@ -9,10 +9,10 @@ export default function Layout() {
       <Header />
       <main className="main">
         <div className="container">
-          <Outlet />   {/* ← tout le contenu des pages est contraint à 1240px */}
+          <Outlet />
         </div>
       </main>
       <Footer />
     </>
-  );
+  )
 }

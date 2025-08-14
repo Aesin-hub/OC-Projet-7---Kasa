@@ -1,0 +1,93 @@
+/* ===========================
+   Carte 340 x 340 – zéro débordement
+   =========================== */
+
+.card {
+  /* Dimensions exactes attendues par la grille */
+  width: 340px;
+  height: 340px;
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-sizing: border-box; /* IMPORTANT pour ne jamais dépasser 340px */
+  background: #eee;
+
+  /* AUCUN espacement ici : la grille gère le gap */
+  margin: 0;
+  padding: 0;
+
+  /* ----- lien cliquable sur toute la carte ----- */
+  &__link,
+  &_link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ----- conteneur media ----- */
+  &__media,
+  &_media {
+    position: absolute;
+    inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  }
+
+  /* Image : pas d'espace inline, couvre toute la carte */
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* évite le petit blanc sous l'image */
+    pointer-events: none; /* ne bloque pas le clic sur le lien parent */
+  }
+
+  /* Dégradé pour lisibilité du titre */
+  &__gradient,
+  &_gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 58%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Titre en bas à gauche */
+  &__title,
+  &_title {
+    position: absolute;
+    left: 16px;
+    bottom: 12px;
+    margin: 0;
+
+    color: #fff;
+    font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+      sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.15;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+
+    max-width: calc(100% - 32px); /* évite de coller le bord droit */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    pointer-events: none; /* pas de blocage de clic sur le texte */
+  }
+
+  /* Feedback focus/hover sans changer la taille ni le layout */
+  &:hover,
+  &:focus-within {
+    outline: none;
+    /* halo interne discret, ne modifie pas la largeur */
+    box-shadow: inset 0 0 0 3px rgba(255, 96, 96, 0.25);
+  }
+
+  /* Accessibilité clavier */
+  &:has(a:focus-visible) {
+    box-shadow: inset 0 0 0 3px rgba(255, 96, 96, 0.5);
+  }
+}

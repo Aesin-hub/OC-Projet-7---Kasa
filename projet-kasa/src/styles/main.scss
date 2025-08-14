@@ -3,4 +3,9 @@
 @use "./layout";
 @use "./components/header";
 @use "./components/footer";
-@use "./pages/home"
+@use "./components/collapse";
+@use "./components/banner";
+@use "./components/card";
+@use "./pages/home";
+@use "./pages/error";
+@use "./pages/about";

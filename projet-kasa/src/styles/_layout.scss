@@ -1,5 +1,22 @@
-.container {
-  max-width: 1240px;
-  margin-inline: auto; // centre horizontalement
-  padding-inline: 20px; // petite marge interne pour éviter le collage
+/* _layout.scss (global) */
+:root {
+  --container-max: 1240px;
 }
+
+.container {
+  max-width: var(--container-max);
+  width: 100%;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* Pour éviter les surprises de largeur */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  overflow-x: hidden;
+} /* ceinture de sécurité */

@@ -1,9 +1,16 @@
-import hero from "../assets/hero.jpg";
+import "../styles/components/_banner.scss";
 
-export default function Banner() {
+export default function Banner({ image, title, opacity = 0.6, marginTop = 0 }) {
   return (
-    <div className="home__banner" style={{ "--hero": `url(${hero})` }}>
-      <span>Chez vous, partout et ailleurs</span>
+    <div
+      className="banner"
+      style={{
+        "--hero": `url(${image})`,
+        "--overlay-opacity": opacity,
+        marginTop: `${marginTop}px`,
+      }}
+    >
+      {title && <span>{title}</span>}
     </div>
   );
 }

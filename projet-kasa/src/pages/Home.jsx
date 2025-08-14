@@ -1,6 +1,7 @@
 // src/pages/Home.jsx
 import { useEffect, useMemo, useRef, useState } from 'react'
 import logements from '../data/logements.json'
+import heroHome from '../assets/hero.jpg'
 import Banner from '../components/Banner.jsx'
 import Card from '../components/Card.jsx'
 
@@ -55,26 +56,38 @@ export default function Home() {
 
   return (
     <section className="home">
-      <Banner />
+      <div className="container">
+        <Banner
+          image={heroHome}
+          title="Chez vous, partout et ailleurs"
+          opacity={0.6}
+          marginTop={50}
+        />
 
-      <div className="home__grid-wrapper">
-        <div
-          className="home__grid-viewport"
-          ref={viewportRef}
-          role="region"
-          aria-label="Liste des logements (défilement par rangées)"
-        >
+        <div className="home__grid-wrapper">
           <div
-            className="home__grid"
-            style={{ transform: `translateY(-${offset}px)` }}
+            className="home__grid-viewport"
+            ref={viewportRef}
+            role="region"
+            aria-label="Liste des logements (défilement par rangées)"
           >
-            {rows.map((row, r) => (
-              <div className="home__row" key={`row-${r}`}>
-                {row.map((l) => (
-                  <Card key={l.id} id={l.id} title={l.title} cover={l.cover} />
-                ))}
-              </div>
-            ))}
+            <div
+              className="home__grid"
+              style={{ transform: `translateY(-${offset}px)` }}
+            >
+              {rows.map((row, r) => (
+                <div className="home__row" key={`row-${r}`}>
+                  {row.map((l) => (
+                    <Card
+                      key={l.id}
+                      id={l.id}
+                      title={l.title}
+                      cover={l.cover}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
