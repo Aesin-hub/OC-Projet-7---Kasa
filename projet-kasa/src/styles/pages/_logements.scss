@@ -1,0 +1,119 @@
+@use "../variables" as *;
+
+.logement {
+  // .container déjà appliqué via Layout -> largeur 1240px centrée etc.
+
+  &__header {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__intro {
+    max-width: 760px;
+  }
+
+  &__title {
+    font: 700 36px/1.2 "Montserrat", sans-serif;
+    margin: 0 0 8px;
+    color: #ff6060;
+  }
+
+  &__location {
+    margin: 0 0 12px;
+    color: #333;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__aside {
+    display: grid;
+    gap: 12px;
+    justify-items: end;
+  }
+
+  &__cols {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0; 
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #ff6060;
+  color: #fff;
+  font: 600 14px/1 "Montserrat", sans-serif;
+}
+
+.host {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &__name {
+    /* force un wrap prénom/nom et aligne à droite */
+    width: 84px;                /* ajuste 90–110px selon tes textes */
+    max-width: 84px;
+    text-align: right;
+    line-height: 1.1;
+    white-space: normal;        /* autorise les retours à la ligne */
+    overflow-wrap: anywhere;    /* casse au besoin */
+    word-break: break-word;         /* on coupe de préférence aux espaces */
+    font: 600 16px/1.2 "Montserrat", sans-serif;
+    color: $color-primary;
+  }
+
+  &__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+
+/* Rating (étoiles) */
+.rating {
+  display: flex;
+  gap: 6px;
+
+  &__star {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    background: #e3e3e3;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
+      79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+
+  .is-on {
+    background: #ff6060;
+  }
+}
+
+/* Liste équipements */
+.equip-list {
+  margin: 0;
+  padding-left: 18px;
+  li { margin: 4px 0; }
+}
+
+/* Responsive rapide */
+@media (max-width: 900px) {
+  .logement__header { flex-direction: column; }
+  .logement__aside { justify-items: start; }
+  .logement__cols { grid-template-columns: 1fr; }
+}
