@@ -79,3 +79,21 @@
   }
 }
 
+@media (max-width: 768px) {
+  .logement {
+    &__cols {
+      display: grid;
+      grid-template-columns: 1fr; /* une seule colonne */
+      gap: 16px;                  /* espace entre les deux panneaux */
+      margin-top: 16px;
+    }
+  }
+
+  .collapse {
+    width: 100% !important; /* override la prop inline "width=582px" */
+    /* rayon et typo si besoin */
+    &__btn { height: 42px; font-size: 14px; }
+    &__content { font-size: 14px; line-height: 1.4; }
+    &__chevron { width: 16px; height: 16px; }
+  }
+}

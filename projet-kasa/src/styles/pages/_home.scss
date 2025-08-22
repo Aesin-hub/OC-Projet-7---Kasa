@@ -52,3 +52,25 @@ $gap-x: calc(($wrapper-w - ($cols * $card)) / ($cols + 1)); // 55px
     }
   }
 }
+
+/* === MOBILE GRID === */
+/* ==== Mobile : on masque le grid-wrapper et on affiche une liste 1 colonne ==== */
+@media (max-width: 768px) {
+  /* Par sécurité, si le markup desktop était encore présent,
+     on l'inhibe visuellement (mais Home.jsx ne le rend plus en mobile) */
+  .home__grid-wrapper {
+    display: none;
+  }
+
+  /* La liste mobile (rendu conditionnel dans Home.jsx) */
+  .home__list {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 seule colonne */
+    gap: 20px;                  /* ✅ gap demandé entre les cards */
+  }
+
+  /* Les cards prennent la largeur utile du container (alignées avec la bannière) */
+  .home__list .card {
+    width: 100%;
+  }
+}

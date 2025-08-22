@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import data from "../data/logements.json";
 import Slideshow from "../components/Slideshow";
-import Collapse from "../components/Collapse"; // tu l'as déjà
+import Collapse from "../components/Collapse";
 import Rating from "../components/Rating";
 
 export default function Logement() {
@@ -14,7 +14,7 @@ export default function Logement() {
   );
 
   if (!logement) {
-    return <Navigate to="*" replace />; // redirige vers ta 404
+    return <Navigate to="*" replace />;
   }
 
   const {
@@ -33,7 +33,7 @@ export default function Logement() {
       {/* Galerie */}
       <Slideshow pictures={pictures} alt={title} />
 
-      {/* En-tête : titre + host */}
+      {/* En-tête */}
       <div className="logement__header">
         <div className="logement__intro">
           <h1 className="logement__title">{title}</h1>

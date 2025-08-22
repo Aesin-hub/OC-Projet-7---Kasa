@@ -112,8 +112,75 @@
 }
 
 /* Responsive rapide */
-@media (max-width: 900px) {
-  .logement__header { flex-direction: column; }
-  .logement__aside { justify-items: start; }
-  .logement__cols { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .logement {
+    /* 1) Le header en une seule colonne : aside passe SOUS les tags */
+    &__header {
+      display: block;                 // annule la grille/2 colonnes du desktop s'il y en a
+    }
+
+    /* 2) Titre (si pas déjà fait) */
+    &__title {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin: 12px 0 6px;
+    }
+
+    &__location { margin-bottom: 10px; }
+
+    /* 3) Tags sur une ligne (scroll si ça déborde) */
+    &__tags {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin-top: 8px;
+    }
+    &__tags::-webkit-scrollbar { display: none; }
+
+    /* 4) Sous les tags : rating à GAUCHE, host à DROITE (sans changer le JSX) */
+    &__aside {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+
+      /* Dans ton JSX: first-child = .host, last-child = <Rating />
+         On inverse visuellement l'ordre: */
+      > *:first-child {            // .host
+        order: 2;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-align: right;
+      }
+
+      > *:last-child {             // Rating
+        order: 1;
+        margin-right: auto;        // colle le rating à gauche
+      }
+
+      .host__name   { font-size: 14px; line-height: 1.3; }
+      .host__avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+    }
+
+    /* 5) Collapses empilés + gap = 20px */
+     &__cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;        /* spacing propre entre collapses */
+      margin-top: 16px; /* petit espace après rating */
+      margin-bottom: 24px; /* espace avant footer */
+    }
+
+    /* neutralise le margin-top du composant Collapse dans ce contexte */
+    &__cols .collapse {
+      margin: 0 !important;
+      width: 100% !important; /* override du width inline */
+    }
+  }
 }

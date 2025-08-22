@@ -3,6 +3,7 @@
 
 .header {
   margin-top: 45px;
+  margin-bottom: 50px;
 
   &__inner {
     display: flex;
@@ -36,12 +37,44 @@
   }
 }
 
-@media (max-width: v.$bp-md) {
+/* === MOBILE HEADER === */
+@media (max-width: 768px) {
   .header {
-    padding-block: 20px;
+    margin-top: 20px;           /* remonte un peu le header */
+    margin-bottom: 27px;
 
-    &__logo { width: 145px; height: auto; }
-    &__nav { gap: 26px; }
-    &__link { font-size: 12px; text-transform: uppercase; }
+    &__inner {
+    min-height: 64px;           /* un peu plus haut pour de bons tap targets */
+    padding-top: 4px;
+    padding-bottom: 4px;
+    }
+
+    &__logo {
+    width: 150px;              
+    height: auto;
+    }
+
+    &__nav {
+    gap: 26px;                 
+    }
+
+    &__link {
+    font-size: 18px;            /* ↑ était 16px */
+    line-height: 1;             /* compense le soulignement */
+    padding: 6px 0;             /* meilleure zone de clic */
+    -webkit-tap-highlight-color: transparent;
+    }
+
+    &__link.is-active::after {
+    bottom: -4px;               /* position du soulignement */
+    height: 2px;
+    }
   }
+}
+
+/* === très petits téléphones (<= 380px) === */
+@media (max-width: 380px) {
+  .header__logo { width: 135px; }   /* évite la casse sur 320–360px */
+  .header__nav  { gap: 18px; }
+  .header__link { font-size: 16px; }
 }

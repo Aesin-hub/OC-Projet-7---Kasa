@@ -28,7 +28,7 @@ const texts = {
 export default function About() {
   return (
     <main className="about">
-      {/* Bannière en haut – optionnelle */}
+      {/* Bannière en haut avec gestion des props */}
       <Banner 
         image={heroAbout} opacity={0.3} marginTop={38} hideTitle/>
 

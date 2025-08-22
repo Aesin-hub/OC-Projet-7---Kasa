@@ -20,3 +20,20 @@ html,
 body {
   overflow-x: hidden;
 } /* ceinture de sécurité */
+
+/* === MOBILE / TABLET === */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

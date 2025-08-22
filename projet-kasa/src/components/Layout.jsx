@@ -1,5 +1,5 @@
 // src/components/Layout.jsx
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom' //emplace ou sera affiché les routes enfant défini dans App.jsx
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
 

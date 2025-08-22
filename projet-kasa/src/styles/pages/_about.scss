@@ -9,15 +9,33 @@
     gap: 0px;           /* espace vertical entre les collapse */
     margin-bottom: 50px;
   }
+}
 
-  /* Optionnel : en dessous de ~1023px on laisse prendre toute la largeur
-     pour éviter un débordement sur mobile */
-  @media (max-width: 1060px) {
-    &__list {
-      align-items: stretch;
+@media (max-width: 768px) {
+  .about {
+    /* 1) Réduit la marge SOUS la bannière sur cette page */
+    .banner,
+    .banner__wrapper {
+      margin-bottom: 20px !important; /* ↓ espace bannière -> 1er collapse */
     }
-    &__list > .collapse {
-      width: 100%;
+
+    /* 2) Liste des collapses : spacing géré ici */
+    &__list {
+      /* pas de marge supplémentaire vers le haut */
+      margin-top: 0 !important;
+
+      /* espace avant le footer */
+      margin-bottom: 24px;
+
+      /* espacement entre chaque collapse */
+      display: grid;
+      gap: 20px;
+
+      /* 3) Neutralise les marges du composant Collapse et largeur fluide */
+      .collapse {
+        margin: 0 !important;        /* écrase le margin-top:30px du composant */
+        width: 100% !important;      /* override de width="1023px" en prop */
+      }
     }
   }
 }

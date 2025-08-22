@@ -52,3 +52,53 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 }
+
+@media (max-width: 768px) {
+  .slideshow {
+    position: relative;         /* base pour les flèches */
+    border-radius: 14px;
+
+    /* conteneur image responsive */
+    &__frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 335 / 255;
+      overflow: hidden;
+      border-radius: inherit;
+      background: transparent;
+    }
+
+    /* image plein cadre (plus de fond gris) */
+    &__img,
+    &__frame > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* contrôles visibles, centrés verticalement, au-dessus de l'image */
+    &__ctrl {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;               /* << important */
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      pointer-events: auto;
+
+      &--prev { left: 10px; }   /* << la flèche gauche revient */
+      &--next { right: 10px; }
+
+      img, svg { width: 26px; height: 26px; display: block; }
+    }
+
+    /* compteur */
+    &__count { bottom: 10px; font-size: 12px; }
+  }
+}

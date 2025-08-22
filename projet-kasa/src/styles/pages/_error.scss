@@ -38,21 +38,21 @@
 /* Optionnel : petite adaptation tablette/mobile */
 @media (max-width: 768px) {
   .error {
-    margin: 96px auto;    /* un peu moins d’espace sur petits écrans */
-    gap: 64px;
-    padding-inline: 20px; /* confort latéral */
-  }
+    &__img {
+      max-width: 200px;   /* réduit la largeur max */
+      height: auto;       /* garde le ratio */
+      margin: 0 auto 20px; /* centré + espace bas */
+      display: block;
+    }
 
-  .error__img {
-    width: min(597px, 80vw);
-    height: auto;
-  }
+    &__text {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
 
-  .error__text {
-    font-size: 28px;
-  }
-
-  .error__back {
-    font-size: 16px;
+    &__back {
+      font-size: 14px;
+    }
   }
 }
