@@ -1,0 +1,26 @@
+en version mobile : sur page logement, pas de numérotation sur slideshow.
+
+Pour la soutenance :
+
+-présentation du site/projet et son utilisation en version desktop et en version mobile
+
+point important a expliqué lors de la soutenance :
+
+- structure du projet: page/composant/style etc
+- système de composant avec réact
+- routing ( app.jsx ), react-router-dom / browserrouter
+- layout { route } pour mettre header et footer sur tte les pages. expliquer le fonctionnement du layout rapidement. ( template )
+- route a expliqué, logement/:id ( condition pour chaque page ) et * ( toute les autre pages non défini )
+
+
+
+-expliqué un composant, jsx, expliqué les hook/props ( props = parametre ), donner un exemple d'une props
+ hook est une fonction react, useState = variable et la fonction / modificateur
+le use id pour le css et gerer les element
+
+- expliquer le fonctionnement du collapse et du slideshow
+
+-slideshow
+expliquer le % count qui permet de boucler les images
+
+expliquer tous les hook que j'ai utilisé
