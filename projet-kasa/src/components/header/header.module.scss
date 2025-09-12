@@ -1,5 +1,4 @@
-/* src/styles/components/_header.scss */
-@use "../variables" as v;
+@use "../../styles/variables" as v;
 
 .header {
   margin-top: 45px;
@@ -27,24 +26,34 @@
     text-decoration: none;;
     color: v.$color-text;
 
-    &.is-active::after {
+     &.is_active {
+    text-decoration: none;
+    }
+
+    &.is_active::after {
       content: "";
       position: absolute;
       left: 0; right: 0; bottom: -5px;
-      height: 2px;
-      background: v.$color-text;   /* <<< important */
+      height: 1px;
+      background: v.$color-text; 
     }
   }
+}
+
+.container {
+  max-width: var(--container-max);
+  width: 100%;
+  margin-inline: auto;
+  box-sizing: border-box;
 }
 
 /* === MOBILE HEADER === */
 @media (max-width: 768px) {
   .header {
-    margin-top: 20px;           /* remonte un peu le header */
-    margin-bottom: 27px;
+    margin: 20px 20px 27px 20px;
 
     &__inner {
-    min-height: 64px;           /* un peu plus haut pour de bons tap targets */
+    min-height: 64px;          
     padding-top: 4px;
     padding-bottom: 4px;
     }
@@ -59,22 +68,10 @@
     }
 
     &__link {
-    font-size: 18px;            /* ↑ était 16px */
-    line-height: 1;             /* compense le soulignement */
-    padding: 6px 0;             /* meilleure zone de clic */
+    font-size: 18px;           
+    line-height: 1;            
+    padding: 6px 0;           
     -webkit-tap-highlight-color: transparent;
-    }
-
-    &__link.is-active::after {
-    bottom: -4px;               /* position du soulignement */
-    height: 2px;
-    }
+    }    
   }
-}
-
-/* === très petits téléphones (<= 380px) === */
-@media (max-width: 380px) {
-  .header__logo { width: 135px; }   /* évite la casse sur 320–360px */
-  .header__nav  { gap: 18px; }
-  .header__link { font-size: 16px; }
 }

@@ -2,23 +2,10 @@ import { useId, useState } from "react";
 // - useId    → génère un identifiant unique pour lier les boutons aux panneaux
 // - useState → gère l'état "ouvert/fermé" du panneau
 
-import arrow from"../assets/arrow.svg";
+import arrow from"../../assets/arrow.svg";
+import styles from "../collapse/collapse.module.scss";
 
-/**
- * Composant Collapse – panneau déroulant accessible
- *
- * Props :
- * - title        : titre affiché dans l'en-tête
- * - children     : contenu à afficher quand le panneau est ouvert
- * - defaultOpen  : si true, le panneau est ouvert par défaut
- * - width        : largeur en CSS (ex: "1023px")
- *
- * Caractéristiques :
- * - Fermé par défaut (sauf si defaultOpen=true)
- * - Animation gérée par CSS (max-height + opacity)
- * - Icône chevron qui pivote selon l'état
- */
-export default function Collapse({ title, children, defaultOpen = false, width }) {
+export default function Collapse({ title, children, defaultOpen = false, width, marginTop }) {
 
   // État qui détermine si le panneau est ouvert
   const [open, setOpen] = useState(defaultOpen);
@@ -26,22 +13,25 @@ export default function Collapse({ title, children, defaultOpen = false, width }
   const id = useId();
 
   return (
-    <section className={`collapse ${open ? "is-open" : ""}`}
-    style={width ? { width } : undefined}>
-      <h3 className="collapse__header">
+    <section className={`${styles.collapse} ${open ? styles.is_open : ""}`}
+    style={{
+        ...(width && { width }),
+        ...(marginTop && { marginTop }),
+        }}>
+      <h3 className={styles.collapse__header}>
       {/* Bouton pour ouvrir/fermer le panneau */}
         <button
           id={`btn-${id}`}                          // ID unique pour le bouton
-          className="collapse__btn"
+          className={styles.collapse__btn}
           aria-expanded={open}                      // indique si le panneau est ouvert
           aria-controls={`panel-${id}`}             // Lie le bouton au panneau 
           onClick={() => setOpen((o) => !o)}
         >
-          <span className="collapse__title">{title}</span>
+          <span className={styles.collapse__title}>{title}</span>
           <img
           src={arrow}
           alt=""
-          className="collapse__chevron"
+          className={styles.collapse__chevron}
           aria-hidden="true"
           />
         </button>
@@ -52,10 +42,10 @@ export default function Collapse({ title, children, defaultOpen = false, width }
         id={`panel-${id}`}
         role="region"
         aria-labelledby={`btn-${id}`}
-        className="collapse__panel"
+        className={styles.collapse__panel}
       >
         {/* Contenu du panneau */}
-        <div className="collapse__content">{children}</div>
+        <div className={styles.collapse__content}>{children}</div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-@use "../variables" as *;
+@use "../../styles/variables" as *;
 
 .logement {
   // .container déjà appliqué via Layout -> largeur 1240px centrée etc.
@@ -84,28 +84,8 @@
   }
 }
 
-
-/* Rating (étoiles) */
-.rating {
-  display: flex;
-  gap: 6px;
-
-  &__star {
-    width: 22px;
-    height: 22px;
-    border-radius: 4px;
-    background: #e3e3e3;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
-      79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  }
-
-  .is-on {
-    background: #ff6060;
-  }
-}
-
 /* Liste équipements */
-.equip-list {
+.equip_list {
   margin: 0;
   padding-left: 18px;
   li { margin: 4px 0; }

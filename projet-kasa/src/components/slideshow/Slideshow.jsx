@@ -1,37 +1,30 @@
 import { useState } from "react";
-import arrow from "../assets/arrow.svg";
-
-// Composant Slideshow
-// Props :
-// - pictures → tableau d'URLs d'images à afficher
-// - alt      → texte alternatif générique pour les images (optionnel)
+import arrow from "../../assets/arrow.svg";
+import styles from "../slideshow/slideshow.module.scss";
 
 export default function Slideshow({ pictures = [], alt = "" }) {
   // État pour suivre l'index de l'image actuelle
   const [index, setIndex] = useState(0);
-  // Nombre total d'images
   const count = pictures.length;
 
-  // Si pas d'images, on ne rend rien
   if (!pictures || count === 0) return null;
 
   // Fonction pour changer d'image
   // dir : -1 pour précédent, +1 pour suivant
   const go = (dir) => {
     setIndex((i) => {
-      /// (i + dir + count) % count → boucle de manière circulaire
-      // Exemple : à la dernière image, si dir=+1 → revient à 0
+      // (i + dir + count) % count → boucle de manière circulaire
       const next = (i + dir + count) % count;
       return next;
     });
   };
 
   return (
-    <div className="slideshow" aria-label="Galerie d'images">
+    <div className={styles.slideshow} aria-label="Galerie d'images">
       {/* bouton précédent, si plusieurs images */}
       {count > 1 && (
         <button
-          className="slideshow__ctrl slideshow__ctrl--prev"
+          className={`${styles.slideshow__ctrl} ${styles.slideshow__ctrl_prev}`}
           onClick={() => go(-1)}
           aria-label="Image précédente"
         >
@@ -42,7 +35,7 @@ export default function Slideshow({ pictures = [], alt = "" }) {
       
 
       <img
-        className="slideshow__img"
+        className={styles.slideshow__img}
         src={pictures[index]}
         alt={alt || `Photo ${index + 1}`}
       />
@@ -51,14 +44,14 @@ export default function Slideshow({ pictures = [], alt = "" }) {
       {count > 1 && (
         <>
           <button
-            className="slideshow__ctrl slideshow__ctrl--next"
+            className={`${styles.slideshow__ctrl} ${styles.slideshow__ctrl_next}`}
             onClick={() => go(+1)}
             aria-label="Image suivante"
           >
             <img src={arrow} alt="" />
           </button>
 
-          <div className="slideshow__count" aria-live="polite">
+          <div className={styles.slideshow__count} aria-live="polite">
             {index + 1}/{count}
           </div>
         </>

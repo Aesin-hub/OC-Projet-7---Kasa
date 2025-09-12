@@ -1,10 +1,4 @@
-// Composant Rating
-// Props :
-// - value → note reçue (par défaut 0)
-//
-// Fonctionnement :
-// - Affiche 5 étoiles
-// - Remplit les étoiles jusqu'à la valeur donnée (ex: 3 → 3 étoiles pleines, 2 vides)
+import styles from "../rating/rating.module.scss";
 
 export default function Rating({ value = 0 }) {
 
@@ -15,10 +9,10 @@ export default function Rating({ value = 0 }) {
 
   const v = Math.max(0, Math.min(5, Number(value) || 0));
   return (
-    <div className="rating" aria-label={`Note ${v} sur 5`}>
+    <div className={styles.rating} aria-label={`Note ${v} sur 5`}>
       {/* On crée 5 étoiles */}
       {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className={"rating__star" + (i < v ? " is-on" : "")} />
+        <span key={i} className={`${styles.rating__star} ${i < v ? styles.is_on : ""}`} />
       ))}
     </div>
   );

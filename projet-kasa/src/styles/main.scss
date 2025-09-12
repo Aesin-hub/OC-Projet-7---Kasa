@@ -1,13 +1,2 @@
 @use "./variables" as *;   // rend les variables dispo sans préfixe
 @use "./base";
-@use "./layout";
-@use "./components/header";
-@use "./components/footer";
-@use "./components/collapse";
-@use "./components/banner";
-@use "./components/card";
-@use "./components/slideshow";
-@use "./pages/home";
-@use "./pages/error";
-@use "./pages/about";
-@use "./pages/logements";

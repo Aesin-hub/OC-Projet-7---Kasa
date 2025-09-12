@@ -1,9 +1,10 @@
 // src/pages/Home.jsx
 import { useEffect, useMemo, useRef, useState } from 'react'
-import logements from '../data/logements.json'
-import heroHome from '../assets/hero.jpg'
-import Banner from '../components/Banner.jsx'
-import Card from '../components/Card.jsx'
+import styles from "./home.module.scss";
+import logements from '../../data/logements.json'
+import heroHome from '../../assets/hero.jpg'
+import Banner from '../../components/banner/Banner.jsx'
+import Card from '../../components/card/Card.jsx'
 
 const CARD_H = 340
 const GAP_Y  = 50
@@ -16,7 +17,7 @@ export default function Home() {
     const out = []
     for (let i = 0; i < logements.length; i += COLS) out.push(logements.slice(i, i + COLS))
     return out
-  }, []) // :contentReference[oaicite:2]{index=2}
+  }, [])
 
   // ===== Détection mobile (réactive) =====
   const [isMobile, setIsMobile] = useState(false)
@@ -67,7 +68,7 @@ export default function Home() {
   const offset = rowIndex * (CARD_H + GAP_Y)
 
   return (
-    <section className="home">
+    <section className={styles.home}>
       <div className="container">
         <Banner
           image={heroHome}
@@ -78,26 +79,26 @@ export default function Home() {
 
         {isMobile ? (
           /* ===== MOBILE : plus de grid-wrapper, juste la liste ===== */
-          <div className="home__list" role="list" aria-label="Liste des logements">
+          <div className={styles.home__list} role="list" aria-label="Liste des logements">
             {logements.map((l) => (
               <Card key={l.id} id={l.id} title={l.title} cover={l.cover} />
             ))}
           </div>
         ) : (
           /* ===== DESKTOP : grid-wrapper + scroll interne (inchangé) ===== */
-          <div className="home__grid-wrapper">
+          <div className={styles.home__grid_wrapper}>
             <div
-              className="home__grid-viewport"
+              className={styles.home__grid_viewport}
               ref={viewportRef}
               role="region"
               aria-label="Liste des logements"
             >
               <div
-                className="home__grid"
+                className={styles.home__grid}
                 style={{ transform: `translateY(-${offset}px)` }}
               >
                 {rows.map((row, r) => (
-                  <div className="home__row" key={`row-${r}`}>
+                  <div className={styles.home__row} key={`row-${r}`}>
                     {row.map(l => (
                       <Card key={l.id} id={l.id} title={l.title} cover={l.cover} />
                     ))}

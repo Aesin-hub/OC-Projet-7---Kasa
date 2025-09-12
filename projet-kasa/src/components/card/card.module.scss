@@ -1,19 +1,13 @@
-/* ===========================
-   Carte 340 x 340 – zéro débordement
-   =========================== */
-
 .card {
-  /* Dimensions exactes attendues par la grille */
   width: 340px;
   height: 340px;
 
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-sizing: border-box; /* IMPORTANT pour ne jamais dépasser 340px */
+  box-sizing: border-box;
   background: #eee;
 
-  /* AUCUN espacement ici : la grille gère le gap */
   margin: 0;
   padding: 0;
 

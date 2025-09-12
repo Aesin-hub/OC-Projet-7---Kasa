@@ -28,13 +28,13 @@
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
 
-    &--prev {
+    &_prev {
       left: 16px;
       img {
         rotate: 90deg;
       }
     }
-    &--next {
+    &_next {
       right: 16px;
         img {
             rotate: -90deg;

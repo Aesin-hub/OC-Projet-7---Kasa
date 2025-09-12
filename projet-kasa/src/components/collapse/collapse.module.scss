@@ -1,21 +1,19 @@
-@use '../variables' as *;
+@use '../../styles/variables' as *;
 
-/* ---- Collapse ---- */
 .collapse {
   margin-top: 30px;
 }
 
-/* Bouton (barre rouge avec le chevron) */
 .collapse__btn {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: $color-primary; /* #FF6060 */
+  background: $color-primary;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 500; /* Medium */
+  font-weight: 500;
   font-size: 18px;
   line-height: 1;
   border: 0;
@@ -27,7 +25,6 @@
   outline-offset: 3px;
 }
 
-/* Chevron (fabriqué en CSS) */
 .collapse__chevron {
   width: 20px;
   height: 20px;
@@ -36,21 +33,18 @@
   transform: rotate(-180deg); /* fermé = flèche ↑ */
 }
 
-/* Ouvert = rotation vers la gauche (-90°) */
-.collapse.is-open .collapse__chevron {
+.collapse.is_open .collapse__chevron {
   transform: rotate(-360deg);
 }
 
-/* Conteneur animé */
 .collapse__panel {
   overflow: hidden;
-  max-height: 0; /* fermé */
+  max-height: 0;
   opacity: 0;
   transform: translateY(-4px);
   transition: max-height 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Contenu (fond gris) */
 .collapse__content {
   background: #f6f6f6;
   border-radius: 10px;
@@ -61,10 +55,9 @@
   line-height: 1.45;
 }
 
-/* État ouvert */
-.collapse.is-open {
+.is_open {
   .collapse__panel {
-    max-height: 600px; /* assez grand pour ton texte */
+    max-height: 600px;
     opacity: 1;
     transform: none;
   }
@@ -83,15 +76,14 @@
   .logement {
     &__cols {
       display: grid;
-      grid-template-columns: 1fr; /* une seule colonne */
-      gap: 16px;                  /* espace entre les deux panneaux */
+      grid-template-columns: 1fr; 
+      gap: 16px;                  
       margin-top: 16px;
     }
   }
 
   .collapse {
-    width: 100% !important; /* override la prop inline "width=582px" */
-    /* rayon et typo si besoin */
+    width: 100% !important; 
     &__btn { height: 42px; font-size: 14px; }
     &__content { font-size: 14px; line-height: 1.4; }
     &__chevron { width: 16px; height: 16px; }

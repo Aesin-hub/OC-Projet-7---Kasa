@@ -32,7 +32,7 @@
     position: absolute;
     inset: 0;
     background-color: black;
-    opacity: var(--overlay-opacity, 0.6); // valeur par défaut
+    opacity: var(--overlay-opacity, 0.6);
   }
 
   span {
@@ -45,20 +45,19 @@
   }
 }
 
-/* === MOBILE BANNER (Home) === */
 @media (max-width: 768px) {
   .banner {
     height: 180px;
     border-radius: 15px;
+    justify-content: flex-start;
   }
 
-   .banner__title {
-    justify-content: flex-start; /* ⚡ texte aligné à gauche */
+   .banner_title {
+    padding-left: 16px;
     text-align: left;
   }
 
-  /* >>> taille mobile (tablettes) */
-  .banner__title span {
+  .banner_title span {
     display: block;
     font-size: 28px;
     text-align: left;
@@ -70,8 +69,6 @@
 
 @media (max-width: 480px) {
   .banner { height: 160px; border-radius: 10px; }
-
-  /* >>> taille mobile (petits smartphones) */
   .banner__title { padding-left: 16px; padding-right: 16px; }
   .banner__title span { font-size: 24px; }
 }

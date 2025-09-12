@@ -1,4 +1,4 @@
-@use "../variables" as v;
+@use "../../styles/variables" as v;
 
 .footer {
   background-color: v.$color-footer-bg;
@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 29px; // espace entre logo et texte
+    gap: 29px;
   }
 
   &__logo {
@@ -26,7 +26,7 @@
   }
 
   &__text {
-    font-size: 24px; // à ajuster si tu veux coller exactement à la maquette
+    font-size: 24px;
     font-weight: 500;
   }
 }

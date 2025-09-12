@@ -1,7 +1,7 @@
-// src/pages/About.jsx
-import Collapse from "../components/Collapse";
-import Banner from "../components/Banner";
-import heroAbout from "../assets/hero-about.jpg"; // image de la bannière
+import styles from "../About/about.module.scss";
+import Collapse from "../../components/collapse/Collapse";
+import Banner from "../../components/banner/Banner";
+import heroAbout from "../../assets/hero-about.jpg";
 
 const texts = {
   fiabilite:
@@ -27,12 +27,11 @@ const texts = {
 
 export default function About() {
   return (
-    <main className="about">
-      {/* Bannière en haut avec gestion des props */}
+    <main className={styles.about}>
       <Banner 
         image={heroAbout} opacity={0.3} marginTop={38} hideTitle/>
 
-      <div className="about__list container">
+      <div className={`${styles.about__list} container`}>
         <Collapse title="Fiabilité" width="1023px">{texts.fiabilite}</Collapse>
         <Collapse title="Respect" width="1023px">{texts.respect}</Collapse>
         <Collapse title="Service" width="1023px">{texts.service}</Collapse>

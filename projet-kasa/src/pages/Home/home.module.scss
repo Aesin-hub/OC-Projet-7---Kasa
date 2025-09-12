@@ -5,7 +5,7 @@ $gap-y: 50px;
 $gap-x: calc(($wrapper-w - ($cols * $card)) / ($cols + 1)); // 55px
 
 .home {
-  &__grid-wrapper {
+  &__grid_wrapper {
     width: $wrapper-w;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -15,7 +15,7 @@ $gap-x: calc(($wrapper-w - ($cols * $card)) / ($cols + 1)); // 55px
     padding-block: $gap-y; // espace haut/bas dans le bloc gris
   }
 
-  &__grid-viewport {
+  &__grid_viewport {
     height: calc(#{$card} * 2 + #{$gap-y}); // 2 lignes visibles
     overflow: hidden;
     scrollbar-gutter: stable;
